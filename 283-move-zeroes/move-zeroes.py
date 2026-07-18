@@ -4,10 +4,10 @@ class Solution(object):
         :type nums: List[int]
         :rtype: None Do not return anything, modify nums in-place instead.
         """
-        pointer=0
-
-        for i in range(len(nums)):
-            if(nums[i]!=0):
-                nums[pointer],nums[i]=nums[i],nums[pointer]
-                pointer+=1
-        return nums        
+        n=len(nums)
+        non_zeros=[num for num in nums if num!=0]
+        zeros=n- len(non_zeros)
+        result=non_zeros+[0]*zeros
+        for i in range(n):
+            nums[i]=result[i]
+        return nums    
