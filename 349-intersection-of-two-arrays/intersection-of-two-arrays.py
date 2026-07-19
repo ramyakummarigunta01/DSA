@@ -5,4 +5,15 @@ class Solution(object):
         :type nums2: List[int]
         :rtype: List[int]
         """
-        return list(set(nums1) & set(nums2))
+        result =[]
+        m=len(nums1)
+        n=len(nums2)
+        if m>n:
+            for num in nums1:
+                if(num in nums2) and (num not in result):
+                    result.append(num)
+        else:
+            for num in nums2:
+                if(num in nums1) and (num not in result):
+                    result.append(num)
+        return result            
