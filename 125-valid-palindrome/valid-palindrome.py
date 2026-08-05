@@ -5,7 +5,13 @@ class Solution(object):
         :rtype: bool
         """
         new_s=" ".join(char.lower() for char in s if char.isalnum())
-        lst=list(new_s)[::-1]
-        rev_s="".join(lst)
-        return new_s==rev_s
+        left=0
+        right=len(new_s)-1
+        while left<right:
+            if new_s[left]!=new_s[right]:
+                return False
+            left+=1
+            right-=1
+        return True        
+        
         
