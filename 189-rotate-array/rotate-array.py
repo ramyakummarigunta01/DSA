@@ -5,14 +5,8 @@ class Solution(object):
         :type k: int
         :rtype: None Do not return anything, modify nums in-place instead.
         """
-        # n=len(nums)
-        # Rotation=k%n
-        # for _ in range(Rotation):
-        #     last_ele=nums.pop()
-        #     nums.insert(0,last_ele)
-        n = len(nums)
-        k = k % n
-        nums.reverse()
-        nums[:k] = reversed(nums[:k])
-        nums[k:] = reversed(nums[k:])
-
+        n=len(nums)
+        rotated_arr=[0]*n
+        for i in range(n):
+            rotated_arr[(i+k)%n]=nums[i]
+        nums[:]=rotated_arr[:]    
