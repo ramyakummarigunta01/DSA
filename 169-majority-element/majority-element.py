@@ -4,6 +4,8 @@ class Solution(object):
         :type nums: List[int]
         :rtype: int
         """
-        for x in set(nums):
-            if nums.count(x)>len(nums)//2:
-                return x
+        freq=dict()
+        for num in nums:
+            if num in freq:freq[num]+=1
+            else:freq[num]=1
+            if freq[num]>len(nums)//2: return num        
